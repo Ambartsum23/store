@@ -1,0 +1,49 @@
+<div class="product-info-container">
+  <div class="images-section">
+    <div class="main-image">
+      <img [src]="productImages[currentImageIndex]" [alt]="product.title" width="380">
+    </div>
+    <div class="thumbnail-images">
+      <button (click)="prevImage()" [disabled]="currentImageIndex === 0" class="nav-arrow left-arrow">←</button>
+      <img *ngFor="let image of productImages; let i = index" [src]="image" [alt]="product.title" width="50" (click)="showImage(i)">
+      <button (click)="nextImage()" [disabled]="currentImageIndex === productImages.length - 1" class="nav-arrow right-arrow">→</button>
+    </div>
+  </div>
+  
+  <div class="product-header">
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <div class="product-rating">
+      <p><strong>Rating:</strong> {{ product.rating | percentage: total : 1 }}</p>
+    </div>
+    <div class="product-price-add">
+      <p><strong>Price:</strong> {{ product.price | currency: '₾ ' }}</p>
+      <div class="action">
+        <button class="add-to-basket" *ngIf="!isProductInCart(product); else inCart" (click)="addToCart(product)">
+          Add to basket
+          <img class="cart-icon" src="assets/images/47398-200.png" width="35" height="35">
+        </button>
+        <ng-template #inCart>
+          <div class="in-basket">In basket</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="feedback">  
+  <div class="reviews">
+    <h2>Review</h2>
+    <div *ngFor="let review of reviews">
+      <p><strong>{{ review.name }}</strong>: {{ review.text }} ({{ review.date | date }})</p>
+    </div>
+    <div *ngIf="loggedIn" class="review-input">
+      <textarea [(ngModel)]="reviewText" placeholder="leave your review"></textarea>
+      <button (click)="addReview()">Add review</button>
+    </div>
+  </div>
+
+  <div *ngIf="!loggedIn">
+    <p>Login to your account to buy this product and leave a review.</p>
+  </div>
+</div>

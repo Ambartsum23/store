@@ -1,0 +1,9 @@
+<div class="filter">
+  <div class="filterbox" *ngFor="let category of categories">
+    <label [for]="category.value" [ngClass]="{ 'active': selectedCategory === category.value && searchText.trim() === '' }">{{ category.name }}</label>
+    <input type="radio" name="range" [id]="category.value" [value]="category.value" [(ngModel)]="selectedCategory" (change)="filterCategories()">
+  </div>
+  <div class="filterbox">
+    <input type="text" [(ngModel)]="searchText" (input)="updateSearchText()" placeholder="Search by name" [ngClass]="{ 'active': searchText.trim() !== '' }">
+  </div>
+</div>

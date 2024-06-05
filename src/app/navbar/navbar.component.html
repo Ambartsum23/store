@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand brand" href="#">
+      <span class="text-red">Giga</span><span class="text-orange">Store</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Переключить навигацию">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/home" routerLinkActive="text-primary">
+          <div class="icon-text">
+            <img class="home-icon" src="assets/images/home.png" width="25" height="25">
+            <span>Home</span>
+          </div>
+        </a>
+        <a class="nav-link position-relative" routerLink="/cart" routerLinkActive="text-primary">
+          <div class="icon-text">
+            <img class="cart-icon" src="assets/images/cart.png" width="25" height="25">
+            <span>Basket</span>
+            <span class="cart-count">{{ cartItemCount }}</span>
+          </div> 
+        </a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <ng-container *ngIf="user; else loginRegister">
+          <div class="nav-item dropdown">
+            <button class="nav-link dropdown-toggle log" (click)="toggleDropdown()" id="navbarDropdown" role="button" aria-expanded="false">
+              <img class="cart-icon user" src="assets/images/user.png" width="35" height="35">
+              {{ user.username }}
+              
+            </button>
+            <div *ngIf="isDropdownOpen" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item log" (click)="logout($event)">Log out <img class="cart-icon logout" src="assets/images/logout.png" width="35" height="35"></a>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #loginRegister>
+          <a class="nav-link log" routerLink="/auth/login" routerLinkActive="text-primary"><img class="cart-icon login" src="assets/images/signin.png" width="35" height="35">Sign in</a>
+          
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nav>

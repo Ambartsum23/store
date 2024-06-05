@@ -1,0 +1,23 @@
+<div class="cart">
+  <h2>Your basket</h2>
+  <div *ngIf="cartItems.length === 0">Basket is empty</div>
+  <ul>
+    <li *ngFor="let item of cartItems">
+      <img [src]="item.product.thumbnail" [alt]="item.product.title">
+      <div class="item-info">
+        <div class="product-title">{{ item.product.title }}</div>
+        <div class="product-description">{{ item.product.description }}</div>
+        <div class="product-buttons">
+          <button (click)="decreaseQuantity(item.product)">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item.product)">+</button>
+        </div>
+        <button class="remove-button" (click)="removeFromCart(item.product.id.toString())">Remove</button>
+      </div>
+    </li>
+  </ul>
+  <div class="total">
+    <strong>Total price: </strong>{{ getTotalPrice() | currency: '₾ ' }}
+  </div>
+  <button *ngIf="!isCartEmpty()" (click)="placeOrder()" class="buy">Buy</button>
+</div>

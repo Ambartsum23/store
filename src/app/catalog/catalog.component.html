@@ -1,0 +1,26 @@
+<div class="catalog">
+  <ul class="list">
+    <ng-container *ngFor="let product of filteredProducts">
+      <li class="product-card">   
+        <div class="imgbox" [routerLink]="'/info/'+product.id">
+          <img [src]="product.thumbnail" [alt]="product.title">
+        </div>
+        <div class="details">
+          <div class="name">{{ product.title }}</div>
+          <div class="category">{{ product.category }}</div>
+          <div class="rating">rating: {{ product.rating | percentage: total : 1 }}</div>
+          <div class="price">{{ product.price | currency: '₾ ' }}</div>
+          <div class="action">
+            <button class="add-to-basket" *ngIf="!isProductInCart(product); else inCart" (click)="addToCart(product)">
+              Add to basket
+              <img class="cart-icon" src="assets/images/47398-200.png" width="35" height="35">
+            </button>
+            <ng-template #inCart>
+              <div class="in-basket">In basket</div>
+            </ng-template>
+          </div>
+        </div>
+      </li>
+    </ng-container>
+  </ul>
+</div>

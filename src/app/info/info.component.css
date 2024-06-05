@@ -1,0 +1,184 @@
+
+.product-info-container {
+  display: flex;
+  align-items: flex-start;
+  margin: 55px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding-left: 25px;
+  padding-right: 15px;
+}
+
+.images-section {
+  flex: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-header {
+  flex: 56%;
+  padding-left: 10px;
+}
+
+.feedback {
+  margin: 25px;
+}
+
+.main-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 90%;
+}
+
+.thumbnail-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  border-radius: 5px;
+  background-color: orange;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.left-arrow {
+  left: -45px;
+}
+
+.right-arrow {
+  right: -45px;
+}
+
+.main-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.thumbnail-images img {
+  margin: 0 7.5px;
+  cursor: pointer;
+  border: 1px solid #969696;
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+
+.thumbnail-images img:hover {
+  transform: scale(1.1);
+}
+
+.product-header h1 {
+  margin-bottom: 10px;
+}
+
+.product-header p {
+  margin-bottom: 10px;
+}
+
+.product-rating, .product-price-add {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-price-add .action {
+  margin-left: 15px;
+}
+
+.add-to-basket, .in-basket {
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.add-to-basket:hover {
+  background-color: darkorange;
+  transform: scale(0.95);
+}
+
+.cart-icon {
+  margin-left: 8px;
+}
+
+.in-basket {
+  background-color: #4caf50;
+  cursor: default;
+}
+
+.reviews {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.reviews h2 {
+  text-align: center;
+}
+
+.review-input {
+  position: relative;
+  width: 100%; 
+  margin-top: 20px;
+}
+
+.review-input textarea {
+  width: calc(100% - 20px); 
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.review-input button {
+  position: relative;
+  bottom: 10px;
+  right: -10px;
+  padding: 10px 15px;
+  background-color: orange;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.review-input button:hover {
+  background-color: darkorange;
+  transform: scale(0.95);
+}
+
+
+@media (max-width: 761px) {
+  .thumbnail-images {
+    flex-direction: column; /* Кнопки слева и справа на нижний ряд */
+  }
+}

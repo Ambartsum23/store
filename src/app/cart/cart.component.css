@@ -1,0 +1,139 @@
+.cart {
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart ul li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Центрирование по вертикали */
+  justify-content: space-between; /* Размещение элементов по краям */
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 15px #ff5722;
+  border-radius: 8px;
+  background-color: rgb(195, 195, 195);
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 145px; /* Увеличено на 15 пикселей */
+}
+
+.cart img {
+  width: 100px;
+  height: 100%;
+  border-radius: 8px;
+  margin-right: 15px;
+  object-fit: cover; /* Для сохранения пропорций изображения */
+}
+
+.cart .item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-left: 15px; /* Отступ слева */
+}
+
+.cart .item-info .product-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart .item-info .product-description {
+  margin-top: auto; /* Чтобы занять все доступное пространство */
+}
+
+.cart .product-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.cart .product-buttons button {
+  margin: 0 5px;
+}
+
+.cart .product-buttons span {
+  margin: 0 10px;
+}
+
+.cart .remove-button {
+  margin-top: 10px;
+  margin-left: auto; /* Чтобы кнопка сместилась вправо */
+  text-align: center; /* Центрирование текста */
+}
+
+.cart button {
+  background-color: #ff5722;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.cart button:hover {
+  background-color: #e64a19;
+}
+
+.cart button.buy {
+  display: block;
+  width: 140px;
+  padding: 15px;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px auto 0;
+}
+
+.total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .cart{
+    width: 84%;
+  }
+  .cart ul li {
+    flex-direction: column;
+    align-items: center; /* Центрирование по вертикали */
+    text-align: center; /* Центрирование текста */
+  }
+
+  .cart img {
+    width: 85%;
+    height: auto;
+    margin: 15px;
+  }
+
+  .cart .item-info {
+    width: 85%;
+    height: auto;
+    align-items: center; /* Центрирование по вертикали */
+    padding-left: 0; /* Убрать отступ для мобильного вида */
+  }
+
+  .cart .product-buttons {
+    justify-content: center;
+  }
+
+  .cart .remove-button {
+    align-self: center;
+    margin-top: 15px;
+    margin-left: 0;
+  }
+}
